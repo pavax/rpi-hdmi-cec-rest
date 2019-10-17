@@ -1,9 +1,8 @@
 FROM balenalib/raspberrypi3-debian:latest
 
 RUN apt-get update && apt-get install -y \
-	build-essential golang-go git cmake libudev-dev \
-	libxrandr-dev python-dev pkg-config libraspberrypi0 \
-	libraspberrypi-dev libraspberrypi-doc libraspberrypi-bin
+	build-essential golang-go git cmake \
+	libudev-dev libraspberrypi-dev pkg-config
 
 # build libcec
 RUN git clone https://github.com/Pulse-Eight/libcec.git /root/libcec
@@ -20,6 +19,6 @@ RUN mkdir /go
 RUN go get github.com/pavax/hdmi-cec-rest
 
 # cleanup
-# RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/libcec/
 
 CMD ["/go/bin/hdmi-cec-rest"]
