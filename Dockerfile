@@ -17,7 +17,7 @@ run mkdir build && cd build && cmake cmake -DRPI_INCLUDE_DIR=/opt/vc/include -DR
 # hdmi-cec-rest
 ENV GOPATH=/go
 RUN mkdir /go
-RUN go get github.com/zeroniak/hdmi-cec-rest
+RUN go get github.com/pavax/hdmi-cec-rest
 
 # cleanup
 # RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
