@@ -1,6 +1,6 @@
 # rpi-hdmi-cec-rest
 
-# start docker
+# start docker container
 
     docker run -p 5000:5000 -v /etc/localtime:/etc/localtime:ro -e TZ=Europe/Zurich --device=/dev/vchiq pavandoo/hdmi-cec-rest
 
