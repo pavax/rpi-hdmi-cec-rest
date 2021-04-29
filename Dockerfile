@@ -1,12 +1,10 @@
-FROM balenalib/raspberrypi3-debian:latest
+FROM balenalib/raspberry-pi-debian-golang
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-	golang-go git \
 	libcec-dev libp8-platform-dev cec-utils make pkg-config
 
 # hdmi-cec-rest
-ENV GOPATH=/go
-RUN mkdir /go
+WORKDIR /go
 RUN go get github.com/pavax/hdmi-cec-rest
 
 # cleanup
