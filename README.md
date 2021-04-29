@@ -28,6 +28,10 @@ create a systemd service file:
 
     [Install]
     WantedBy=multi-user.target
+    
+ enable service daemon:
+ 
+    sudo systemctl enable hdmi-cec-rest.service
  
  reload systemd daemon:
  
